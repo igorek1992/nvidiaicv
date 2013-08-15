@@ -101,7 +101,8 @@ class SiteController extends Controller {
      */
     public function actionSignUp() {
         $model = new UsersModel;
-
+       
+        
         // if it is ajax validation request
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'registration-form') {
             echo CActiveForm::validate($model);
@@ -111,13 +112,14 @@ class SiteController extends Controller {
         if (isset($_POST['UsersModel'])) {
             $model->attributes = $_POST['UsersModel'];
             if ($model->save()) {
-                Yii::app()->user->setFlash('registration', "<h3>Thank you for registration.Your login is " . $model->username . ".</h3>");
+                Yii::app()->user->setFlash('register', "<h3>Thank you for registration.</h3>");
                 $this->refresh();
             }
         }
 
         $this->render('signUp',array(
-            'model'=>$model
+            'model'=>$model,
+              
         ));
     }
 

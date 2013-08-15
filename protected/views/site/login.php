@@ -11,7 +11,7 @@ $this->breadcrumbs = array(
 <div class="content">
     <div class="container">
         <div class="page-header">
-            <h1>Login to ICV</h1>
+            <h1>Nvidia login</h1>
         </div>
         <?php
         $form = $this->beginWidget('CActiveForm', array(
@@ -19,13 +19,13 @@ $this->breadcrumbs = array(
             'enableClientValidation' => true,
             'enableAjaxValidation' => true,
             'clientOptions' => array(
-            'validateOnSubmit' => true,
+            'validateOnChange' => true,
         ),
         ));
         ?>
         <div class="row">
             <div class="span6 offset3">
-                <h4 class="widget-header"><i class="icon-lock"></i> Login to ICV</h4>
+                <h4 class="widget-header"><i class="icon-lock"></i> Login to Nvidia</h4>
                 <div class="widget-body">
                     <div class="center-align">
                         <?php echo $form->labelEx($model, 'username'); ?>
@@ -50,7 +50,7 @@ $this->breadcrumbs = array(
                         </div>
                         <?php echo CHtml::submitButton('Login', array('class' => 'btn btn-large bottom-space')); ?>
                         <h4><i class="icon-question-sign"></i> Don't have an account?</h4>
-                        <a href="signup.html" class="btn btn-large bottom-space">Sign up</a>
+                        <?php echo CHtml::linkButton('Sign up', array('submit'=>array('signup'),'class' => 'btn btn-large bottom-space')); ?>
                     </div>
                 </div>
             </div>

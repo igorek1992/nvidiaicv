@@ -316,3 +316,9 @@ form input.error{
     background: #FEE;
     border-color: #C00;
 }
+
+.selectCountry{
+    width:72%;
+    height:40px;
+    margin-bottom: 15px !important;
+}

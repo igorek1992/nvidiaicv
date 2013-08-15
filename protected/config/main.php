@@ -69,6 +69,12 @@ return array(
 			'password' => '',
 			'charset' => 'utf8',
 		),
+              'authManager' => array(
+                        'class' => 'CPhpAuthManager',
+                        'defaultRoles' => array('shopper', 'admin'),
+                        'authFile' => 'protected/config/auth.php',
+                ),
+            
 		
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

@@ -63,9 +63,9 @@
                                             )),
                                         array('label' => 'Faq', 'url' => 'site/faq'),
                                         array('label' => 'Contact us', 'url' => 'contact_us.html'),
-                                        array('label' => 'Sign up', 'url' => 'signup'),
-                                        array('label' => 'Sign in', 'url' => 'login'),
-                                        array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/logout'), 'visible' => !Yii::app()->user->isGuest)
+                                        array('label' => 'Sign up', 'url' => 'signup','visible' => Yii::app()->user->isGuest),
+                                        array('label' => 'Sign in', 'url' => 'login','visible' => Yii::app()->user->isGuest),
+                                        array('label' => 'Exit', 'url' => array('/logout'), 'visible' => !Yii::app()->user->isGuest)
                                     ),
                                 ),
                             ),
