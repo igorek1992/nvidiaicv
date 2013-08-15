@@ -1,0 +1,19 @@
+AddType video/ogg .ogv
+AddType video/mp4 .mp4
+AddType video/webm .webm
+AddType video/x-flv .flv
+Options +FollowSymLinks
+IndexIgnore */*
+
+
+RewriteEngine on
+
+RewriteBase //
+
+RewriteRule ^uploaded/backup/ /admin/backup/download [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+RewriteRule . index.php
