@@ -1081,3 +1081,104 @@ Stack trace:
 REQUEST_URI=/signup.html
 HTTP_REFERER=http://business/login
 ---
+2013/08/15 18:36:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in C:\make a website\business\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\make a website\business\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 C:\make a website\business\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\make a website\business\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/08/15 18:37:28 [error] [exception.CException] exception 'CException' with message 'Alias "bootstrap.widgets.TbNavbar" is invalid. Make sure it points to an existing directory or file.' in C:\make a website\business\protected\framework\YiiBase.php:341
+Stack trace:
+#0 C:\make a website\business\protected\framework\web\CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 C:\make a website\business\protected\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'bootstrap.widge...', Array)
+#2 C:\make a website\business\protected\framework\web\CBaseController.php(172): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\make a website\business\protected\views\layouts\main.php(71): CBaseController->widget('bootstrap.widge...', Array)
+#4 C:\make a website\business\protected\framework\web\CBaseController.php(126): require('C:\make a websi...')
+#5 C:\make a website\business\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\make a websi...', Array, true)
+#6 C:\make a website\business\protected\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\make a websi...', Array, true)
+#7 C:\make a website\business\protected\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#8 C:\make a website\business\protected\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#9 C:\make a website\business\protected\framework\web\CBaseController.php(206): COutputProcessor->run()
+#10 C:\make a website\business\protected\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 C:\make a website\business\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#12 C:\make a website\business\protected\framework\web\CBaseController.php(126): require('C:\make a websi...')
+#13 C:\make a website\business\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\make a websi...', Array, true)
+#14 C:\make a website\business\protected\framework\web\CController.php(784): CBaseController->renderFile('C:\make a websi...', Array, true)
+#15 C:\make a website\business\protected\controllers\SiteController.php(65): CController->render('contact', Array)
+#16 C:\make a website\business\protected\framework\web\actions\CInlineAction.php(49): SiteController->actionContact()
+#17 C:\make a website\business\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\make a website\business\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 C:\make a website\business\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\make a website\business\protected\framework\web\CWebApplication.php(282): CController->run('contact')
+#21 C:\make a website\business\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('site/contact')
+#22 C:\make a website\business\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#23 C:\make a website\business\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/contact
+HTTP_REFERER=http://business/index.php
+---
+2013/08/15 18:50:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "contact_us.html".' in C:\make a website\business\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\make a website\business\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('contact_us.html')
+#1 C:\make a website\business\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\make a website\business\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/contact_us.html
+HTTP_REFERER=http://business/
+---
+2013/08/15 18:51:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index.html".' in C:\make a website\business\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\make a website\business\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('index.html')
+#1 C:\make a website\business\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\make a website\business\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.html
+HTTP_REFERER=http://business/contact
+---
+2013/08/15 18:51:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index.html".' in C:\make a website\business\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\make a website\business\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('index.html')
+#1 C:\make a website\business\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\make a website\business\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.html
+HTTP_REFERER=http://business/index.html
+---
+2013/08/15 18:51:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index.html".' in C:\make a website\business\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\make a website\business\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('index.html')
+#1 C:\make a website\business\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\make a website\business\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.html
+HTTP_REFERER=http://business/index.html
+---
+2013/08/15 18:51:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index.html".' in C:\make a website\business\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\make a website\business\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('index.html')
+#1 C:\make a website\business\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\make a website\business\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.html
+HTTP_REFERER=http://business/index.html
+---
+2013/08/15 18:55:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.js".' in C:\make a website\business\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\make a website\business\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('js/jquery.js')
+#1 C:\make a website\business\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\make a website\business\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/jquery.js
+HTTP_REFERER=http://business/
+---
+2013/08/15 18:55:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.js".' in C:\make a website\business\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\make a website\business\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('js/jquery.js')
+#1 C:\make a website\business\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\make a website\business\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/js/jquery.js
+HTTP_REFERER=http://business/
+---

@@ -12,9 +12,10 @@
         <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-responsive.min.css" rel="stylesheet">
         <!-- Font awesome - iconic font with IE7 support --> 
         <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/font-awesome.css" rel="stylesheet">
+        <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/font-awesome-ie7.css" rel="stylesheet">
         <!-- Bootbusiness theme -->
         <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/boot-business.css" rel="stylesheet">
-        <?php Yii::app()->getComponent("bootstrap"); ?>
+        
         
         
     </head>
@@ -22,58 +23,60 @@
         <!-- Start: HEADER -->
         <header>
             <!-- Start: Navigation wrapper -->
-            <div class="navbar navbar-fixed-top">
-                <div class="navbar-inner">
-                    <div class="container">
-                        <a href="index.html" class="brand brand-bootbus">Bootbusiness</a>
-                        <!-- Below button used for responsive navigation -->
-                        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <!-- Start: Primary navigation -->
-                        <?php
-                        $this->widget('bootstrap.widgets.TbNavbar', array(
-                            'type' => 'inverse',
-                            'brand' => false, // null or 'inverse'
-                            'brandUrl' => '#',
-                            'htmlOptions' => array('class' => 'pull-right'),
-                            'collapse' => true, // requires bootstrap-responsive.css
-                            'items' => array(
-                                array(
-                                    'class' => 'bootstrap.widgets.TbMenu',
-                                    'items' => array(
-                                        array('label' => 'Home', 'url' => '/'),
-                                        array('label' => 'Products and Services', 'url' => '#', 'items' => array(
-                                                array('label' => 'Product', 'url' => 'product.html'),
-                                                array('label' => 'All products', 'url' => 'all_products.html'),
-                                                '---',
-                                                array('label' => 'Services'),
-                                                array('label' => 'Service', 'url' => 'service.html'),
-                                                array('label' => 'All services', 'url' => 'all_services.html'),
-                                            )),
-                                        array('label' => 'About', 'url' => '#', 'items' => array(
-                                                array('label' => 'Our works', 'url' => 'our_works.html'),
-                                                array('label' => 'Parnerships', 'url' => 'patnerships.html'),
-                                                array('label' => 'Leadership', 'url' => 'leadership.html'),
-                                                array('label' => 'News', 'url' => 'news.html'),
-                                                array('label' => 'Events', 'url' => 'events.html'),
-                                                array('label' => 'Blog', 'url' => 'blog.html'),
-                                            )),
-                                        array('label' => 'Faq', 'url' => 'site/faq'),
-                                        array('label' => 'Contact us', 'url' => 'contact_us.html'),
-                                        array('label' => 'Sign up', 'url' => 'signup','visible' => Yii::app()->user->isGuest),
-                                        array('label' => 'Sign in', 'url' => 'login','visible' => Yii::app()->user->isGuest),
-                                        array('label' => 'Exit', 'url' => array('/logout'), 'visible' => !Yii::app()->user->isGuest)
-                                    ),
-                                ),
-                            ),
-                        ));
-                        ?>                                
-                    </div>
-                </div>
+             <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a href="/" class="brand brand-bootbus">Nvidia</a>
+            <!-- Below button used for responsive navigation -->
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Start: Primary navigation -->
+            <div class="nav-collapse collapse">        
+              <ul class="nav pull-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products and Services<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-header">PRODUCTS</li>
+                    <li><a href="product.html">Product1</a></li>
+                    <li><a href="product.html">Product2</a></li>
+                    <li><a href="product.html">Product3</a></li>
+                    <li><a href="all_products.html">All products</a></li>             
+                    <li class="divider"></li>
+                    <li class="nav-header">SERVICES</li>
+                    <li><a href="service.html">Service1</a></li>
+                    <li><a href="service.html">Service2</a></li>
+                    <li><a href="service.html">Service3</a></li>
+                    <li><a href="all_services.html">All services</a></li>
+                  </ul>                  
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="our_works.html">Our works</a></li>
+                    <li><a href="patnerships.html">Parnerships</a></li>
+                    <li><a href="leadership.html">Leadership</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                  </ul>
+                </li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact">Contact us</a></li>
+                <?php if(Yii::app()->user->isGuest): ?>
+                <li><a href="signup">Sign up</a></li>
+                <li><a href="login">Sign in</a></li>
+                <?php endif;?>
+                <?php if(!Yii::app()->user->isGuest): ?>
+                <li><a href="logout">Exit</a></li>
+                <?php endif;?>
+              </ul>
             </div>
+          </div>
+        </div>
+      </div>
             <!-- End: Navigation wrapper -->   
         </header>
         <!-- End: HEADER -->
@@ -160,6 +163,9 @@
                                     </div>
                                     <hr class="footer-divider">
                                     </footer>
+                                    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.min.js"></script>
+                                    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.min.js"></script>
+                                    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/boot-business.js"></script>
 
                                     <!-- End: FOOTER -->
                                     </body>

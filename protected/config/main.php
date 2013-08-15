@@ -49,7 +49,8 @@ return array(
 			'rules'=>array(
 			  	'login'=>'site/login',
                                 'logout'=>'site/logout',
-                                'signup'=>'site/signup'
+                                'signup'=>'site/signup',
+                                'contact'=>'site/contact'
 //                                  '<controller:\w+>/<id:\d+>'=>'<controller>/view',
 //				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 //				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',

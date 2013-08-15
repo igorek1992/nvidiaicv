@@ -1,86 +1,96 @@
-<?php
-/* @var $this SiteController */
-/* @var $model ContactForm */
-/* @var $form CActiveForm */
-
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
-$this->breadcrumbs=array(
-	'Contact',
-);
-?>
-
-<h1>Contact Us</h1>
-
-<?php if(Yii::app()->user->hasFlash('contact')): ?>
-
-<div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('contact'); ?>
-</div>
-
-<?php else: ?>
-
-<p>
-If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-</p>
-
-<div class="form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'contact-form',
-	'enableClientValidation'=>true,
-       	'clientOptions'=>array(
-		'validateOnSubmit'=>true,
-                
-	),
-)); ?>
-
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
-	<?php echo $form->errorSummary($model); ?>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name'); ?>
-		<?php echo $form->error($model,'name'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email'); ?>
-		<?php echo $form->error($model,'email'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'subject'); ?>
-		<?php echo $form->textField($model,'subject',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'subject'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'body'); ?>
-		<?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'body'); ?>
-	</div>
-
-	<?php if(CCaptcha::checkRequirements()): ?>
-	<div class="row">
-		<?php echo $form->labelEx($model,'verifyCode'); ?>
-		<div>
-		<?php $this->widget('CCaptcha'); ?>
-		<?php echo $form->textField($model,'verifyCode'); ?>
-		</div>
-		<div class="hint">Please enter the letters as they are shown in the image above.
-		<br/>Letters are not case-sensitive.</div>
-		<?php echo $form->error($model,'verifyCode'); ?>
-	</div>
-	<?php endif; ?>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
-	</div>
-
-<?php $this->endWidget(); ?>
-
-</div><!-- form -->
-
-<?php endif; ?>
+ <div class="content">
+      <div class="container">
+        <div class="page-header">
+          <h1>Contact us</h1>
+        </div>
+        <div class="row-fluid">
+          <!-- Start: CONTACT US FORM -->
+          <div class="span4 offset1">
+            <div class="page-header">
+              <h2>Quick message</h2>
+            </div>
+            <form class="form-contact-us">
+              <div class="control-group">
+                <div class="controls">
+                  <input type="text" id="inputName" placeholder="Name">
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <input type="text" id="inputEmail" placeholder="Email">
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <textarea id="inputMessage" placeholder="Message"></textarea>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <input type="submit" class="btn btn-primary btn-large" value="Send">
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- End: CONTACT US FORM -->
+          <!-- Start: OFFICES -->
+          <div class="span5 offset1">
+            <div class="page-header">
+              <h2>Offices</h2>
+            </div>
+            <h3>North America</h3>
+            <div>
+              <address class="pull-left">
+                <strong>Bootbusiness, Inc.</strong><br>
+                123 Folsom Ave, Suite 600<br>
+                USA<br>
+              </address>
+              <div class="pull-right">
+                <div class="bottom-space">
+                  <i class="icon-phone icon-large"></i> (123) 123-1234
+                </div>
+                <a href="mailto:contact@bootbusiness.com" class="contact-mail">
+                  <i class="icon-envelope icon-large"></i>
+                </a> contact@bootbusiness.com
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <h3>Europe</h3>
+            <div>
+              <address class="pull-left">
+                <strong>Bootbusiness, Inc.</strong><br>
+                123 Folsom Ave, Suite 600<br>
+                UK<br>
+              </address>
+              <div class="pull-right">
+                <div class="bottom-space">
+                  <i class="icon-phone icon-large"></i> (123) 123-1234
+                </div>
+                <a href="mailto:contact@bootbusiness.com" class="contact-mail">
+                  <i class="icon-envelope icon-large"></i>
+                </a> contact@bootbusiness.com
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <h3>Asia</h3>
+            <div>
+              <address class="pull-left">
+                <strong>Bootbusiness, Inc.</strong><br>
+                123 Folsom Ave, Suite 600<br>
+                India<br>
+              </address>
+              <div class="pull-right">
+                <div class="bottom-space">
+                  <i class="icon-phone icon-large"></i> (123) 123-1234
+                </div>
+                <a href="mailto:contact@bootbusiness.com" class="contact-mail">
+                  <i class="icon-envelope icon-large"></i>
+                </a> contact@bootbusiness.com
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <!-- End: OFFICES -->
+        </div>
+      </div>
+    </div>
