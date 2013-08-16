@@ -9,7 +9,7 @@
             'id' => 'registration-form',
             'htmlOptions'=>array('class'=>'form-horizontal form-signin-signup'),
             'enableClientValidation' => true,
-        
+           
         ));
         ?>
         <div class="row">

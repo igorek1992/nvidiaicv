@@ -15,6 +15,7 @@
         <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/font-awesome-ie7.css" rel="stylesheet">
         <!-- Bootbusiness theme -->
         <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/boot-business.css" rel="stylesheet">
+        <?php Yii::app()->getClientScript()->registerCoreScript('jquery'); ?>   
         
         
         
@@ -163,7 +164,6 @@
                                     </div>
                                     <hr class="footer-divider">
                                     </footer>
-                                    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.min.js"></script>
                                     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.min.js"></script>
                                     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/boot-business.js"></script>
 

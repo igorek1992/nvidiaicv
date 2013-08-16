@@ -9,28 +9,57 @@
             <div class="page-header">
               <h2>Quick message</h2>
             </div>
-            <form class="form-contact-us">
+              <?php if (Yii::app()->user->hasFlash('contact')): ?>
+                  <?php echo Yii::app()->user->getFlash('contact'); ?>
+                  <?php else: ?>
+              <?php
+            $form = $this->beginWidget('CActiveForm', array(
+            'id' => 'contact-form',
+            'htmlOptions'=>array('class'=>'form-contact-us'),
+            'enableClientValidation' => true,
+            'enableAjaxValidation' => true,
+            'clientOptions'=>array(
+            'validateOnSubmit'=>true
+           ),
+        ));
+        ?>  
               <div class="control-group">
                 <div class="controls">
-                  <input type="text" id="inputName" placeholder="Name">
+                  <?php echo $form->textField($model, 'name',array('placeholder'=>'Name')); ?>
+                   <?php echo $form->error($model, 'name'); ?>
                 </div>
               </div>
               <div class="control-group">
                 <div class="controls">
-                  <input type="text" id="inputEmail" placeholder="Email">
+                  <?php echo $form->textField($model, 'email',array('placeholder'=>'Email')); ?>
+                   <?php echo $form->error($model, 'email'); ?>
                 </div>
               </div>
               <div class="control-group">
                 <div class="controls">
-                  <textarea id="inputMessage" placeholder="Message"></textarea>
+                  <?php echo $form->textArea($model, 'message',array('placeholder'=>'Message')); ?>
+                   <?php echo $form->error($model, 'message'); ?>
                 </div>
               </div>
+              <?php if(CCaptcha::checkRequirements()): ?>
+              <div class="control-group">
+		<?php echo $form->labelEx($model,'verifyCode'); ?>
+		<div>
+		<?php $this->widget('CCaptcha'); ?>
+		<?php echo $form->textField($model,'verifyCode'); ?>
+		</div>
+		<div class="hint">Please enter the letters as they are shown in the image above.
+	     </div>
+		<?php echo $form->error($model,'verifyCode'); ?>
+              </div>
+            <?php endif; ?>
               <div class="control-group">
                 <div class="controls">
-                  <input type="submit" class="btn btn-primary btn-large" value="Send">
+                  <?php echo CHtml::submitButton('Send', array('class' => 'btn btn-primary btn-large')); ?>
                 </div>
               </div>
-            </form>
+              <?php $this->endWidget(); ?>
+              <?php endif;?>
           </div>
           <!-- End: CONTACT US FORM -->
           <!-- Start: OFFICES -->
