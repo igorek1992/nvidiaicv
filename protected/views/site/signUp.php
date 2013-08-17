@@ -9,6 +9,11 @@
             'id' => 'registration-form',
             'htmlOptions'=>array('class'=>'form-horizontal form-signin-signup'),
             'enableClientValidation' => true,
+            'enableAjaxValidation' => true,
+            'clientOptions'=>array(
+            'validateOnSubmit'=>false,
+            'validateOnChange'=>true,
+           ),
            
         ));
         ?>
@@ -17,6 +22,7 @@
             <h4 class="widget-header"><i class="icon-gift"></i> Be a part of Nvidia</h4>
             <div class="widget-body">
               <div class="center-align">
+                  
                   <?php if (Yii::app()->user->hasFlash('register')): ?>
                   <?php echo Yii::app()->user->getFlash('register'); ?>
                   <?php else: ?>

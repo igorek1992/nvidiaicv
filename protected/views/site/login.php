@@ -28,6 +28,7 @@ $this->breadcrumbs = array(
                 <h4 class="widget-header"><i class="icon-lock"></i> Login to Nvidia</h4>
                 <div class="widget-body">
                     <div class="center-align">
+                        
                         <?php echo $form->labelEx($model, 'username'); ?>
                         <?php echo $form->textField($model, 'username'); ?>
                         <?php echo $form->error($model, 'username'); ?>
@@ -44,7 +45,7 @@ $this->breadcrumbs = array(
                                 </label>
                             </div>
                             <div class="pull-right">
-                                <a href="#">Forgot password?</a>
+                                <a href="forgot">Forgot password?</a>
                             </div>
                             <div class="clearfix"></div>
                         </div>

@@ -59,10 +59,13 @@ class UsersModel extends CActiveRecord
 			array('country', 'length', 'max'=>40),
 			array('email', 'length', 'max'=>60),
                         array('email', 'email', 'message'=>'Email is not valid'),
+                        array('email', 'unique', 'message'=>'Someone already has that email. Try another?'),    
+                        array('username', 'unique', 'message'=>'Someone already has that username. Try another?'),
 			array('type', 'length', 'max'=>20),
-			array('password,confirm', 'length', 'max'=>120),
-                        array('password', 'match', 'pattern' => '((?=.*\\d)(?=.*[a-z]).{4,20})', 'message' => 'Password must have numbers and letters and length at least 4 characters and maximum of 20'),
-                        array('password', 'compare', 'compareAttribute'=>'confirm','message'=>'Confirm Password not equal Password'),
+                        array('confirm', 'compare', 'compareAttribute'=>'password','message'=>'Confirm Password not equal Password'),
+			array('password', 'length', 'max'=>120),
+                        array('password', 'match', 'pattern' => '((?=.*\\d)(?=.*[a-z]))', 'message' => 'Password must have numbers and letters'),
+                        
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, firstName, lastName, country, city, email, type, password, confirm,username', 'safe', 'on'=>'search'),

@@ -93,6 +93,39 @@ class SiteController extends Controller {
         // display the login form
         $this->render('login', array('model' => $model));
     }
+    
+    function random_password( $length = 8 ) {
+    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    $password = substr( str_shuffle( $chars ), 0, $length );
+    return $password;
+}
+    
+    public function actionForgotPassword(){
+        
+        $model = new ForgotForm();
+        
+        if (isset($_POST['ForgotForm'])) {
+            $model->attributes = $_POST['ForgotForm'];
+            $forgot = UsersModel::model()->findByAttributes(array('firstName'=>$model->firstname,'lastName'=>$model->lastname,'username'=>$model->login));
+        if($forgot!==NULL){
+         $password = $this->random_password(8);
+         $CryptPassword  = crypt($password);
+         UsersModel::model()->updateByPk($forgot->id, array('password'=>$CryptPassword));  
+         Yii::app()->user->setFlash('forgot', 'Thank you. Your login is '.$forgot->username."<br/> And your new password:<em> $password</em>");
+         $this->refresh();
+        }
+        else {
+             Yii::app()->user->setFlash('forgotError', 'Incorrect data,please check fields');
+         $this->refresh();
+        }
+        
+            
+        }
+        
+        $this->render('forgotPassword',array(
+            'model'=>$model,
+        ));
+    }
 
     /**
      * Logs out the current user and redirect to homepage.
