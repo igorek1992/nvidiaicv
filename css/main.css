@@ -227,3 +227,7 @@ div.search-form
 {
 	background: #80CFFF;
 }
+td.myclass img  {
+  width: 125px;
+  height: 125px;
+}

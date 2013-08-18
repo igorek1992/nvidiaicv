@@ -35,9 +35,15 @@ $this->breadcrumbs = array(
                         <?php echo $form->textField($model, 'lastname'); ?>
                         <?php echo $form->error($model, 'lastname'); ?>
                         
+                        <?php echo $form->labelEx($model, 'email'); ?>
+                        <?php echo $form->textField($model, 'email'); ?>
+                        <?php echo $form->error($model, 'email'); ?>
+                        
                         <?php echo $form->labelEx($model, 'login'); ?>
                         <?php echo $form->textField($model, 'login'); ?>
                         <?php echo $form->error($model, 'login'); ?>
+                        
+                        
                         <br/>
                         <?php if (Yii::app()->user->hasFlash('forgotError')): ?>
                         <?php echo Yii::app()->user->getFlash('forgotError'); ?>
@@ -45,15 +51,12 @@ $this->breadcrumbs = array(
                      
                             
                      <div class="clearfix"></div>
-                        <?php echo CHtml::submitButton('Get Password', array('class' => 'btn btn-large bottom-space')); ?>
+                        <?php echo CHtml::submitButton('Submit', array('class' => 'btn btn-large bottom-space')); ?>
                         <?php endif;?>    
-                        <h4><i class="icon-question-sign"></i> Give a password?</h4>
-                        <?php echo CHtml::linkButton('Sign in', array('submit'=>array('login'),'class' => 'btn btn-large bottom-space')); ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <?php $this->endWidget(); ?>

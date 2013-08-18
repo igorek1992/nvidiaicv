@@ -30,10 +30,9 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu', array(
                     'items' => array(
-                        array('label' => 'Главная', 'url' => array('/admin/')),
-                        array('label'=>'Home','url'=>'admin/home/admin'),
-                        array('label' => 'Вход', 'url' => array('/admin/default/login'), 'visible' => Yii::app()->user->isGuest),
-                        array('label' => 'Выйти (' . Yii::app()->user->name . ')', 'url' => array('/admin/default/logout'), 'visible' => !Yii::app()->user->isGuest)
+                        array('label' => 'Выйти (' . Yii::app()->user->name . ')', 'url' => array('/admin/default/logout'), 'visible' => !Yii::app()->user->isGuest),
+                        array('label'=>'FAQ','url'=>Yii::app()->createAbsoluteUrl('admin')),
+                        array('label'=>'Our Works','url'=>Yii::app()->createAbsoluteUrl('admin/ourworks/admin')),
                     ),
                 )); ?>
 	</div><!-- mainmenu -->

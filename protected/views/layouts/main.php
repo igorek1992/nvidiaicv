@@ -56,7 +56,7 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="our_works.html">Our works</a></li>
+                    <li><a href="ourworks">Our works</a></li>
                     <li><a href="patnerships.html">Parnerships</a></li>
                     <li><a href="leadership.html">Leadership</a></li>
                     <li><a href="news.html">News</a></li>
@@ -64,7 +64,7 @@
                     <li><a href="blog.html">Blog</a></li>
                   </ul>
                 </li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="faq">FAQ</a></li>
                 <li><a href="contact">Contact us</a></li>
                 <?php if(Yii::app()->user->isGuest): ?>
                 <li><a href="signup">Sign up</a></li>

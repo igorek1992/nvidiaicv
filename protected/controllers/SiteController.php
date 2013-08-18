@@ -94,11 +94,11 @@ class SiteController extends Controller {
         $this->render('login', array('model' => $model));
     }
     
-    function random_password( $length = 8 ) {
-    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    $password = substr( str_shuffle( $chars ), 0, $length );
-    return $password;
-}
+//    function random_password( $length = 8 ) {
+//    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+//    $password = substr( str_shuffle( $chars ), 0, $length );
+//    return $password;
+//}
     
     public function actionForgotPassword(){
         
@@ -106,13 +106,14 @@ class SiteController extends Controller {
         
         if (isset($_POST['ForgotForm'])) {
             $model->attributes = $_POST['ForgotForm'];
-            $forgot = UsersModel::model()->findByAttributes(array('firstName'=>$model->firstname,'lastName'=>$model->lastname,'username'=>$model->login));
+            $forgot = UsersModel::model()->findByAttributes(array('firstName'=>$model->firstname,'lastName'=>$model->lastname,'email'=>$model->email,'username'=>$model->login));
         if($forgot!==NULL){
-         $password = $this->random_password(8);
-         $CryptPassword  = crypt($password);
-         UsersModel::model()->updateByPk($forgot->id, array('password'=>$CryptPassword));  
-         Yii::app()->user->setFlash('forgot', 'Thank you. Your login is '.$forgot->username."<br/> And your new password:<em> $password</em>");
-         $this->refresh();
+            $this->redirect('updatepassword');
+//         $password = $this->random_password(8);
+//         $CryptPassword  = crypt($password);
+//         UsersModel::model()->updateByPk($forgot->id, array('password'=>$CryptPassword));  
+//         Yii::app()->user->setFlash('forgot', 'Thank you. Your login is '.$forgot->username."<br/> And your new password:<em> $password</em>");
+//         $this->refresh();
         }
         else {
              Yii::app()->user->setFlash('forgotError', 'Incorrect data,please check fields');
@@ -124,6 +125,30 @@ class SiteController extends Controller {
         
         $this->render('forgotPassword',array(
             'model'=>$model,
+        ));
+    }
+    
+    
+    public function actionUpdatePassword(){
+        $model = new UpdatePasswordForm();
+        if (isset($_POST['UpdatePasswordForm'])) {
+            $model->attributes = $_POST['UpdatePasswordForm'];
+            $forgot = UsersModel::model()->findByAttributes(array('username'=>$model->username));
+            if($forgot!==NULL && $model->password===$model->confirm){
+                $password = $model->password;
+                $CryptPassword  = crypt($model->password);
+                 UsersModel::model()->updateByPk($forgot->id, array('password'=>$CryptPassword)); 
+                 Yii::app()->user->setFlash('UpdatePassword', 'Thank you. Your login is '.$forgot->username."<br/> And your new password:<em> $password</em>");
+                 $this->refresh();
+            }
+            
+            else {
+                 Yii::app()->user->setFlash('forgotUpdateError', 'Incorrect password,please repeat password fields');
+                 $this->refresh();
+            }
+        }
+        $this->render('updatePassword',array(
+            'model'=>$model
         ));
     }
 
@@ -160,6 +185,22 @@ class SiteController extends Controller {
             'model'=>$model,
               
         ));
+    }
+    
+    public function actionFaq(){
+        $model = FaqModel::model()->findAll();
+        $this->render('faq',array(
+                'model'=>$model
+         ));
+    }
+    
+    public function actionOurWorks(){
+        $model = OurWorksModel::model()->findAll();
+        $this->render('ourWorks',array(
+            'model'=>$model
+        )
+                
+                );
     }
 
 }
