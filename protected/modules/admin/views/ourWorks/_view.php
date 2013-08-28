@@ -25,13 +25,6 @@
 	<?php echo CHtml::encode($data->content); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('href')); ?>:</b>
-	<?php echo CHtml::encode($data->href); ?>
-	<br />
-        
-        <b><?php echo CHtml::encode($data->getAttributeLabel('hrefId')); ?>:</b>
-	<?php echo CHtml::encode($data->hrefId); ?>
-	<br />
 
 
 </div>

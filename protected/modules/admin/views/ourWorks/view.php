@@ -26,7 +26,5 @@ $this->menu=array(
 		'title',
 		'imageContent',
 		'content',
-		'href',
-                'hrefId',
-	),
+   ),
 )); ?>

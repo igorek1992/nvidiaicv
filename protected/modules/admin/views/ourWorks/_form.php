@@ -17,36 +17,27 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
+                <?php echo $form->labelEx($model,'image'); ?>
 		<?php echo $form->fileField($model, 'image'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'title'); ?>
-		<?php echo $form->textField($model,'title',array('size'=>30,'maxlength'=>30)); ?>
+		<?php echo $form->textField($model,'title',array('size'=>80,'maxlength'=>180)); ?>
 		<?php echo $form->error($model,'title'); ?>
 	</div>
 
 	<div class="row">
+                <?php echo $form->labelEx($model,'imageContent'); ?>
                 <?php echo $form->fileField($model, 'imageContent'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'content'); ?>
-		<?php echo $form->textArea($model,'content',array('size'=>60,'maxlength'=>1000)); ?>
+		<?php echo $form->textArea($model,'content',array('rows' => 13, 'cols' => 59,'maxlength'=>2500)); ?>
 		<?php echo $form->error($model,'content'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'href'); ?>
-		<?php echo $form->textField($model,'href',array('size'=>40,'maxlength'=>40)); ?>
-		<?php echo $form->error($model,'href'); ?>
-	</div>
-        
-        <div class="row">
-		<?php echo $form->labelEx($model,'hrefId'); ?>
-		<?php echo $form->textField($model,'hrefId',array('size'=>40,'maxlength'=>20)); ?>
-		<?php echo $form->error($model,'hrefId'); ?>
-	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

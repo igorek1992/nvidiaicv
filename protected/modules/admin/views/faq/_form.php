@@ -27,18 +27,6 @@
 		<?php echo $form->error($model,'question'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'faqId'); ?>
-		<?php echo $form->textField($model,'faqId',array('size'=>20,'maxlength'=>20)); ?>
-		<?php echo $form->error($model,'faqId'); ?>
-	</div>
-        
-        <div class="row">
-		<?php echo $form->labelEx($model,'faqHrefId'); ?>
-		<?php echo $form->textField($model,'faqHrefId',array('size'=>20,'maxlength'=>20)); ?>
-		<?php echo $form->error($model,'faqHrefId'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

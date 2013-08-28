@@ -27,7 +27,7 @@
              <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
           <div class="container">
-            <a href="/" class="brand brand-bootbus">Nvidia</a>
+            <a href="/" class="brand brand-bootbus">Cinema.com</a>
             <!-- Below button used for responsive navigation -->
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
               <span class="icon-bar"></span>
@@ -37,31 +37,14 @@
             <!-- Start: Primary navigation -->
             <div class="nav-collapse collapse">        
               <ul class="nav pull-right">
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products and Services<b class="caret"></b></a>
+                  <li><a href="blog">Blog</a></li>
+                               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cinema<b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li class="nav-header">PRODUCTS</li>
-                    <li><a href="product.html">Product1</a></li>
-                    <li><a href="product.html">Product2</a></li>
-                    <li><a href="product.html">Product3</a></li>
-                    <li><a href="all_products.html">All products</a></li>             
-                    <li class="divider"></li>
-                    <li class="nav-header">SERVICES</li>
-                    <li><a href="service.html">Service1</a></li>
-                    <li><a href="service.html">Service2</a></li>
-                    <li><a href="service.html">Service3</a></li>
-                    <li><a href="all_services.html">All services</a></li>
-                  </ul>                  
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="ourworks">Our works</a></li>
+                    <li><a href="ourworks">News</a></li>
                     <li><a href="patnerships.html">Parnerships</a></li>
                     <li><a href="leadership.html">Leadership</a></li>
-                    <li><a href="news.html">News</a></li>
                     <li><a href="events.html">Events</a></li>
-                    <li><a href="blog.html">Blog</a></li>
                   </ul>
                 </li>
                 <li><a href="faq">FAQ</a></li>
@@ -86,31 +69,12 @@
         <footer>
             <div class="container">
                 <div class="row">
+                    
                     <div class="span2">
-                        <h4><i class="icon-star icon-white"></i> Products</h4>
+                        <h4><i class="icon-beaker icon-white"></i> Cinema</h4>
                         <nav>
                             <ul class="quick-links">
-                                <li><a href="product.html">Product1</a></li>
-                                <li><a href="product.html">Product2</a></li>
-                                <li><a href="product.html">Product3</a></li>
-                                <li><a href="all_products.html">All products</a></li>
-                            </ul>
-                        </nav>
-                        <h4><i class="icon-cogs icon-white"></i> Services</h4>
-                        <nav>
-                            <ul class="quick-links">
-                                <li><a href="service.html">Service1</a></li>
-                                <li><a href="service.html">Service2</a></li>
-                                <li><a href="service.html">Service3</a></li>
-                                <li><a href="all_services.html">All services</a></li>              
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="span2">
-                        <h4><i class="icon-beaker icon-white"></i> About</h4>
-                        <nav>
-                            <ul class="quick-links">
-                                <li><a href="our_works.html">Our works</a></li>
+                                <li><a href="ourworks">News</a></li>
                                 <li><a href="patnerships.html">Patnerships</a></li>
                                 <li><a href="leadership.html">Leadership</a></li>
                                 <li><a href="news.html">News</a></li>
@@ -123,8 +87,8 @@
                                         <h4><i class="icon-thumbs-up icon-white"></i> Support</h4>
                                         <nav>
                                             <ul class="quick-links">
-                                                <li><a href="faq.html">FAQ</a></li>
-                                                <li><a href="contact_us.html">Contact us</a></li>            
+                                                <li><a href="faq">FAQ</a></li>
+                                                <li><a href="contact">Contact us</a></li>            
                                             </ul>
                                         </nav>
                                         <h4><i class="icon-legal icon-white"></i> Legal</h4>

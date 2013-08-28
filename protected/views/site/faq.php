@@ -10,12 +10,12 @@
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <h4>
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#faqAccordion" href="<?php echo $value->faqHrefId?>">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#faqAccordion" href="#faq<?php echo $value->id?>">
                       <i class="icon-question-sign"></i> <?php echo $value->answer; ?>
                     </a>
                   </h4>
                 </div>
-                <div id="<?php echo $value->faqId?>" class="accordion-body collapse">
+                <div id="faq<?php echo $value->id?>" class="accordion-body collapse">
                   <div class="accordion-inner">
                     <p>
                       <?php echo $value->question; ?>

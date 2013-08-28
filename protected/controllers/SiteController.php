@@ -27,7 +27,14 @@ class SiteController extends Controller {
     public function actionIndex() {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
-        $this->render('index');
+        $news = LastNewsAndMoviesModel::model()->findAllByAttributes(array('category'=>'Last News'));
+        $newsTitle = LastNewsAndMoviesModel::model()->findByAttributes(array('category'=>'Last News'));
+        $slider = SliderModel::model()->findAll();
+        $this->render('index',array(
+            'news'=>$news,
+            'newsTitle'=>$newsTitle,
+            'slider'=>$slider
+        ));
     }
 
     /**
@@ -196,8 +203,14 @@ class SiteController extends Controller {
     
     public function actionOurWorks(){
         $model = OurWorksModel::model()->findAll();
+        $dataProvider = new CActiveDataProvider('OurWorksModel', array(
+            'pagination' => array(
+                'pageSize' => 12,
+            ),
+        ));
         $this->render('ourWorks',array(
-            'model'=>$model
+            'model'=>$model,
+            'dataProvider'=>$dataProvider    
         )
                 
                 );

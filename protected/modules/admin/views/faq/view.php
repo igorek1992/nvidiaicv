@@ -24,7 +24,5 @@ $this->menu=array(
 		'id',
 		'answer',
 		'question',
-		'faqId',
-                'faqHrefId',
 	),
 )); ?>

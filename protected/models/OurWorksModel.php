@@ -39,14 +39,14 @@ class OurWorksModel extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title,content, href,hrefId', 'required'),
-                        array('image,imageContent', 'required', 'on' => 'insert'),
-			array('image, imageContent, content', 'length', 'max'=>1000),
-			array('title', 'length', 'max'=>30),
-			array('href', 'length', 'max'=>40),
-			// The following rule is used by search().
+			array('title,content', 'required'),
+                        array('image,imageContent','file','types'=>'jpg,png', 'on' => 'insert'),
+                        array('image,imageContent','file','types'=>'jpg,png','allowEmpty'=>true,'on' => 'update'),
+			array('content', 'length', 'max'=>3000),
+			array('title', 'length', 'max'=>180),
+						// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, image, title, imageContent, content, href,hrefId', 'safe', 'on'=>'search'),
+			array('id, image, title, imageContent, content', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -72,8 +72,6 @@ class OurWorksModel extends CActiveRecord
 			'title' => 'Title',
 			'imageContent' => 'Image Content',
 			'content' => 'Content',
-			'href' => 'Href',
-                        'hrefId' => 'Href Id,Example: portfolioModal1',
 		);
 	}
 
@@ -93,11 +91,12 @@ class OurWorksModel extends CActiveRecord
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('imageContent',$this->imageContent,true);
 		$criteria->compare('content',$this->content,true);
-		$criteria->compare('href',$this->href,true);
-                $criteria->compare('hrefId',$this->hrefId,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                    'pagination' => array(
+                'pageSize' => 4,
+            )
 		));
 	}
         

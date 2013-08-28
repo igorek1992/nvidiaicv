@@ -36,15 +36,6 @@
 		<?php echo $form->textField($model,'content',array('size'=>60,'maxlength'=>250)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'href'); ?>
-		<?php echo $form->textField($model,'href',array('size'=>40,'maxlength'=>40)); ?>
-	</div>
-    
-        <div class="row">
-		<?php echo $form->label($model,'hrefId'); ?>
-		<?php echo $form->textField($model,'hrefId',array('size'=>40,'maxlength'=>40)); ?>
-	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>

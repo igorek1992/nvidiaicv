@@ -17,13 +17,4 @@
 	<?php echo CHtml::encode($data->question); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('faqId')); ?>:</b>
-	<?php echo CHtml::encode($data->faqId); ?>
-	<br />
-        
-        <b><?php echo CHtml::encode($data->getAttributeLabel('faqHrefId')); ?>:</b>
-	<?php echo CHtml::encode($data->faqHrefId); ?>
-	<br />
-
-
 </div>

@@ -41,10 +41,10 @@ class UploadImageBehavior extends CActiveRecordBehavior
                 return true;
             }
             $path = $this->basePath . $this->getOwner()->getMetaData()->tableSchema->name . '/' . $this->getOwner()->id;
-
             if (file_exists($path)) {
+                
                 $fullPath = $this->basePath . $this->getOwner()->getMetaData()->tableSchema->name . '/' . $this->getOwner()->id . '/' . $uploadedFile->getName();
-
+//                $this->delete_directory();
                 $uploadedFile->saveAs($fullPath);
             } elseif ($this->createDir($path)) {
                 $fullPath = $this->basePath . $this->getOwner()->getMetaData()->tableSchema->name . '/' . $this->getOwner()->id . '/' . $uploadedFile->getName();
@@ -100,6 +100,25 @@ class UploadImageBehavior extends CActiveRecordBehavior
         rmdir($path);
 
         //       BannersModel::model()->deleteAll();
+        return true;
+    }
+    
+    
+     public function delete_directory() {
+        $dirname = $this->basePath . $this->getOwner()->getMetaData()->tableSchema->name . '/' . $this->getOwner()->id;
+        if (is_dir($dirname))
+            $dir_handle = opendir($dirname);
+        if (!$dir_handle)
+            return false;
+        while ($file = readdir($dir_handle)) {
+            if ($file != "." && $file != "..") {
+                if (!is_dir($dirname . "/" . $file))
+                    unlink($dirname . "/" . $file);
+                else
+                    delete_directory($dirname . '/' . $file);
+            }
+        }
+        closedir($dir_handle);
         return true;
     }
 

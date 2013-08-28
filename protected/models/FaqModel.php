@@ -37,13 +37,12 @@ class FaqModel extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('answer, question, faqId,faqHrefId', 'required'),
+			array('answer, question', 'required'),
 			array('answer', 'length', 'max'=>100),
 			array('question', 'length', 'max'=>200),
-			array('faqId,faqHrefId', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, answer, question, faqId,faqHrefId', 'safe', 'on'=>'search'),
+			array('id, answer, question', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,8 +66,7 @@ class FaqModel extends CActiveRecord
 			'id' => 'ID',
 			'answer' => 'Answer',
 			'question' => 'Question',
-			'faqId' => 'Faq ID',
-                        'faqHrefId' => 'Faq Href ID'
+			
 		);
 	}
 
@@ -86,8 +84,6 @@ class FaqModel extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('answer',$this->answer,true);
 		$criteria->compare('question',$this->question,true);
-		$criteria->compare('faqId',$this->faqId,true);
-                $criteria->compare('faqHrefId',$this->faqHrefId,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -45,9 +45,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
 		array(
-            
             'name' => 'image',
             'type' => 'image',
             'htmlOptions'=>array('class'=>'myclass'),
@@ -66,8 +64,6 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
             'name'=>'content',
             'type'=>'shortText'
         ),
-		'href',
-                'hrefId',
         
 		array(
 			'class'=>'CButtonColumn',

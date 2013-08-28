@@ -33,6 +33,8 @@
                         array('label' => 'Выйти (' . Yii::app()->user->name . ')', 'url' => array('/admin/default/logout'), 'visible' => !Yii::app()->user->isGuest),
                         array('label'=>'FAQ','url'=>Yii::app()->createAbsoluteUrl('admin')),
                         array('label'=>'Our Works','url'=>Yii::app()->createAbsoluteUrl('admin/ourworks/admin')),
+                        array('label'=>'Last News And Movies','url'=>Yii::app()->createAbsoluteUrl('admin/lastnews/admin')),
+                        array('label'=>'Slider','url'=>Yii::app()->createAbsoluteUrl('admin/slider/admin')),
                     ),
                 )); ?>
 	</div><!-- mainmenu -->
