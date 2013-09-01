@@ -16,11 +16,6 @@ $this->breadcrumbs = array(
         <?php
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'login-form',
-            'enableClientValidation' => true,
-            'enableAjaxValidation' => true,
-            'clientOptions' => array(
-            'validateOnChange' => true,
-        ),
         ));
         ?>
         <div class="row">

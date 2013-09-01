@@ -78,12 +78,13 @@ class SliderController extends Controller
 
 		if(isset($_POST['SliderModel']))
 		{
+                        $route = Yii::app()->createAbsoluteUrl('admin/slider/admin');
 			$model->attributes=$_POST['SliderModel'];
                          if (CUploadedFile::getInstance($model, 'image')) {
                        $model->image = CUploadedFile::getInstance($model, 'image');
                          }
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect($route);
 		}
 
 		$this->render('update',array(
