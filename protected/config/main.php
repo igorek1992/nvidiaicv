@@ -11,6 +11,8 @@ return array(
 
 	// preloading 'log' component
 	'preload'=>array('log'),
+        'sourceLanguage'=>'en',
+        'language'=>'en',
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -33,6 +35,10 @@ return array(
 
 	// application components
 	'components'=>array(
+            'request'=>array(
+        'enableCookieValidation'=>true,
+        'enableCsrfValidation'=>true,
+    ),
 		'user'=>array(
                     'class' => 'WebUser',
 			// enable cookie-based authentication
@@ -48,9 +54,15 @@ return array(
 		// uncomment the following to enable URLs in path-format
 		
 		'urlManager'=>array(
+                        'class'=>'application.components.UrlManager',       
 			'urlFormat'=>'path',
                         'showScriptName' => false,
 			'rules'=>array(
+                             '<language:(ru|ua|en)>/' => 'site/index',
+                            '<language:(ru|ua|en)>/<action:(contact|login|logout)>/*' => 'site/<action>',
+                            '<language:(ru|ua|en)>/<controller:\w+>/<id:\d+>'=>'<controller>/view',
+                            '<language:(ru|ua|en)>/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+                            '<language:(ru|ua|en)>/<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
 			  	'login'=>'site/login',
                                 'logout'=>'site/logout',
                                 'signup'=>'site/signup',
@@ -60,6 +72,7 @@ return array(
                                 'admin'=>'admin/faq/admin',
                                 'updatepassword'=>'site/updatepassword',
                                 'ourworks'=>'site/ourworks',
+                                'blog'=>'site/blog',
 //                                  '<controller:\w+>/<id:\d+>'=>'<controller>/view',
 //				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 //				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
@@ -112,5 +125,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'igorchepurnoi@mail.ru',
+                'languages'=>array('ru'=>'Русский','en'=>'English'),
 	),
 );

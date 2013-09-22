@@ -14,27 +14,29 @@ class AjaxController extends Controller
     {
         return array(
             array(
-                'actions'=>array('LoadSubSpeciality'),
+                'deny',
+                'actions'=>array('findUserByEmail', 'assignTest', 'unblockPoints', 'takeTicket', 'assignTicket'),
                 'users' => array('?'),
             ),
         );
     }
 
-   
-    public function actionLoadSubSpeciality()
-{
-   $data=StateModel::model()->findAll('CountryID=:CountryID', 
-   array(':CountryID'=>(int) $_POST['country']));
- 
-   $data=CHtml::listData($data,'ID','Name');
- 
-   foreach($data as $value=>$name)
-   echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
-}
+    public function actionGetStateOptions($country)
+    {
+        
+        if ($states = StateModel::getStatesByCountry($country))
+        {
+            echo CHtml::tag('option', array('value' => ''), CHtml::encode(' - Select State - '));
+            foreach ($states as $id => $state)
+            {
+                echo CHtml::tag('option', array('value' => $id), CHtml::encode($state));
+            }
+        }
+        else
+        {
+            echo CHtml::tag('option', array('value' => ''), 'No states found');
+        }
+    }
 
     
-
-   
-
-   
 }

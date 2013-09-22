@@ -172,8 +172,6 @@ class SiteController extends Controller {
      */
     public function actionSignUp() {
         $model = new UsersModel;
-       
-        
         // if it is ajax validation request
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'registration-form') {
             echo CActiveForm::validate($model);
@@ -187,7 +185,6 @@ class SiteController extends Controller {
                 $this->refresh();
             }
         }
-
         $this->render('signUp',array(
             'model'=>$model,
               
@@ -211,9 +208,47 @@ class SiteController extends Controller {
         $this->render('ourWorks',array(
             'model'=>$model,
             'dataProvider'=>$dataProvider    
-        )
-                
-                );
+        ));
+    }
+    
+    public function actionSearch(){
+        
+    }
+    
+    public function actionBlog(){
+        $model=new BlogModel('search');
+         $model->unsetAttributes();  // clear any default values
+                if(isset($_GET['BlogModel']))
+        $model->attributes=$_GET['BlogModel'];
+        $lastPost = BlogModel::model()->findAll(array(
+            'order' => 'id DESC',
+            "limit" => 5,
+        ));
+        $dataProvider = new CActiveDataProvider('BlogModel', array(
+            'pagination' => array(
+                'pageSize' => 3,
+            ),
+        ));
+        $this->render('blog',array(
+           'model'=>$model,
+           'dataProvider' => $model->search(),
+           'lastPost' => $lastPost,
+        ));
+    }
+    
+     
+    
+    public function actionPostView($post){
+        $model = BlogModel::model()->findByAttributes(array('id'=>$post));
+        $lastPost = BlogModel::model()->findAll(array(
+            'order' => 'id DESC',
+            "limit" => 5,
+        ));
+        $this->render('postView',array(
+           'model'=>$model,
+           'lastPost' => $lastPost  
+        ));        
+        
     }
 
 }

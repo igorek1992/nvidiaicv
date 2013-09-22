@@ -94,7 +94,7 @@ class StateModel extends CActiveRecord
 		));
 	}
         
-        public static function getStatesByCountry($CountryID = 0)
+        public static function getStatesByCountry($CountryID =0)
 	{
 		$states = array();
 		$criteria=new CDbCriteria;

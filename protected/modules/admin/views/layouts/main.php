@@ -35,6 +35,7 @@
                         array('label'=>'Our Works','url'=>Yii::app()->createAbsoluteUrl('admin/ourworks/admin')),
                         array('label'=>'Last News And Movies','url'=>Yii::app()->createAbsoluteUrl('admin/lastnews/admin')),
                         array('label'=>'Slider','url'=>Yii::app()->createAbsoluteUrl('admin/slider/admin')),
+                        array('label'=>'Blog','url'=>Yii::app()->createAbsoluteUrl('admin/blog/admin')),
                     ),
                 )); ?>
 	</div><!-- mainmenu -->

@@ -38,10 +38,10 @@
             <h2><?php echo $newsTitle->category; ?></h2>
         </div>
             <div class="row-fluid">
-            <ul class="thumbnails">
+            <ul class="custom_thumbnails">
                 <?php foreach ($news as $value): ?>
                 <li class="span4">
-                    <div class="thumbnail">
+                    <div class="custom_thumbnail">
                         <img src="<?php echo "/uploads/LastNewsAndMovies/$value->id/$value->image"; ?>" alt="product name">
                         <div class="caption">
                             <h3><?php echo $value->title; ?></h3>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="widget-footer">
                             <p>
-                                <a href="<?php echo $value->buttonUrl; ?>" class="btn"><?php echo $value->buttonName; ?></a>
+                                <a href="<?php echo $value->buttonUrl; ?>" class="btn"><?php echo Yii::t('app',$value->buttonName); ?></a>
                             </p>
                         </div>
                     </div>

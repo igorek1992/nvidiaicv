@@ -16,51 +16,57 @@
         <!-- Bootbusiness theme -->
         <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/boot-business.css" rel="stylesheet">
         <?php Yii::app()->getClientScript()->registerCoreScript('jquery'); ?>   
-        
-        
-        
+
+
+
     </head>
     <body>
+
+
         <!-- Start: HEADER -->
         <header>
+
             <!-- Start: Navigation wrapper -->
-             <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-          <div class="container">
-            <a href="/" class="brand brand-bootbus">Cinema.com</a>
-            <!-- Below button used for responsive navigation -->
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <!-- Start: Primary navigation -->
-            <div class="nav-collapse collapse">        
-              <ul class="nav pull-right">
-                  <li><a href="blog">Blog</a></li>
-                               <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cinema<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="ourworks">News</a></li>
-                    <li><a href="patnerships.html">Parnerships</a></li>
-                    <li><a href="leadership.html">Leadership</a></li>
-                    <li><a href="events.html">Events</a></li>
-                  </ul>
-                </li>
-                <li><a href="faq">FAQ</a></li>
-                <li><a href="contact">Contact us</a></li>
-                <?php if(Yii::app()->user->isGuest): ?>
-                <li><a href="signup">Sign up</a></li>
-                <li><a href="login">Sign in</a></li>
-                <?php endif;?>
-                <?php if(!Yii::app()->user->isGuest): ?>
-                <li><a href="logout">Exit</a></li>
-                <?php endif;?>
-              </ul>
+            <div class="navbar navbar-fixed-top">
+
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a href="/" class="brand brand-bootbus">Cinema.com</a>
+                        <!-- Below button used for responsive navigation -->
+                        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- Start: Primary navigation -->
+                        <div class="nav-collapse collapse">        
+                            <ul class="nav pull-right">
+
+                                <li><a href="<?php echo Yii::app()->createAbsoluteUrl('blog') ?>"><?php echo Yii::t('app', 'Blog'); ?></a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Yii::t('app', 'Cinema'); ?><b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('ourworks') ?>"><?php echo Yii::t('app', 'News'); ?></a></li>
+                                        <li><a href="patnerships.html">Parnerships</a></li>
+                                        <li><a href="leadership.html">Leadership</a></li>
+                                        <li><a href="events.html">Events</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="<?php echo Yii::app()->createAbsoluteUrl('faq') ?>"><?php echo Yii::t('app', 'FAQ'); ?></a></li>
+                                <li><a href="<?php echo Yii::app()->createAbsoluteUrl('contact') ?>"><?php echo Yii::t('app', 'Contact us'); ?></a></li>
+                                <?php if (Yii::app()->user->isGuest): ?>
+                                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl('signup') ?>"><?php echo Yii::t('app', 'Sign up'); ?></a></li>
+                                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl('login') ?>"><?php echo Yii::t('app', 'Sign in'); ?></a></li>
+                                <?php endif; ?>
+                                <?php if (!Yii::app()->user->isGuest): ?>
+                                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl('logout') ?>"><?php echo Yii::t('app', 'Exit'); ?></a></li>
+                                <?php endif; ?>
+                                <li class="dropdown"> <?php $this->widget('application.components.widgets.LanguageSelector'); ?></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
             <!-- End: Navigation wrapper -->   
         </header>
         <!-- End: HEADER -->
@@ -69,7 +75,7 @@
         <footer>
             <div class="container">
                 <div class="row">
-                    
+
                     <div class="span2">
                         <h4><i class="icon-beaker icon-white"></i> Cinema</h4>
                         <nav>
